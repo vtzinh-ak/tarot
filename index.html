@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Luminar | Conexão & Destino</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILO VISUAL (O Místico que você gostou) --- */
+        :root {
+            --bg-color: #0f0c29;
+            --gradient-bg: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold: #d4af37;
+            --gold-light: #f1c40f;
+            --text-light: #f0f0f0;
+            --text-dim: #b3b3b3;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--gold); }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* Fundo de Estrelas */
+        .stars {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px);
+            background-size: 550px 550px, 350px 350px;
+            z-index: 0; opacity: 0.6;
+        }
+
+        /* Header */
+        header {
+            height: 90vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 2rem; position: relative; z-index: 1;
+        }
+
+        header h1 {
+            font-size: 4rem; margin-bottom: 1rem;
+            text-transform: uppercase; letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            animation: fadeIn 1.5s ease;
+        }
+
+        header p {
+            font-size: 1.4rem; color: var(--text-dim); margin-bottom: 3rem;
+            max-width: 600px; animation: fadeIn 2s ease;
+        }
+
+        /* Botão Dourado */
+        .btn-principal {
+            padding: 1rem 3rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative; overflow: hidden;
+            background: transparent;
+        }
+
+        .btn-principal:hover {
+            background: var(--gold); color: #0f0c29;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Seções */
+        section { padding: 5rem 2rem; position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+        
+        section h2 {
+            text-align: center; font-size: 2.5rem; margin-bottom: 3rem;
+        }
+
+        /* Cards de Serviços */
+        .cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem; border-radius: 15px; text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 1.5rem; }
+        .preco { display: block; font-size: 1.3rem; font-weight: 700; color: var(--gold-light); margin-top: 1rem; }
+
+        /* Formulário de Agendamento (Simplificado e Bonito) */
+        #agendamento {
+            margin-top: 2rem;
+        }
+
+        form {
+            background: rgba(15, 12, 41, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--gold);
+            padding: 3rem; border-radius: 20px;
+            max-width: 500px; margin: 0 auto;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        label { color: var(--gold); display: block; margin-bottom: 8px; margin-top: 15px; }
+        
+        input, select {
+            width: 100%; padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px; color: white; outline: none;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        input:focus, select:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+        select option { background: #1a0b2e; }
+
+        button[type="submit"] {
+            width: 100%; margin-top: 25px; padding: 15px;
+            background: linear-gradient(45deg, var(--gold), #b8860b);
+            border: none; color: #1a0b2e; font-weight: bold; font-size: 1.1rem;
+            cursor: pointer; text-transform: uppercase; transition: 0.3s;
+        }
+
+        button[type="submit"]:hover { transform: scale(1.02); box-shadow: 0 0 15px var(--gold); }
+
+        /* Footer e Ícones Sociais */
+        footer {
+            text-align: center; padding: 3rem; margin-top: 3rem;
+            border-top: 1px solid var(--glass-border); color: var(--text-dim);
+        }
+
+        .social-icons { margin-top: 1rem; }
+        .social-icons a {
+            font-size: 1.8rem; color: var(--gold); margin: 0 15px;
+            display: inline-block;
+        }
+        .social-icons a:hover { transform: scale(1.2); color: #fff; text-shadow: 0 0 10px var(--gold); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile */
+        @media (max-width: 768px) { header h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <header>
+        <h1>Tarot Luminar</h1>
+        <p>Descubra respostas, direções e autoconhecimento através das cartas.</p>
+        <a href="#agendamento" class="btn-principal">Agendar Leitura</a>
+    </header>
+
+    <section id="servicos">
+        <h2>Consultas Disponíveis</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fa-solid fa-sun"></i>
+                <h3>Leitura Geral</h3>
+                <p>Uma visão completa das áreas principais da sua vida e conselhos para o momento presente.</p>
+                <span class="preco">R$ 40,00</span>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Tarot do Amor</h3>
+                <p>Entenda energias, sentimentos, bloqueios e caminhos afetivos para o casal ou solteiros.</p>
+                <span class="preco">R$ 35,00</span>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-moon"></i>
+                <h3>Leitura Espiritual</h3>
+                <p>Conexão interior, propósito de alma e direcionamentos para sua evolução.</p>
+                <span class="preco">R$ 50,00</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="agendamento">
+        <h2>Agende sua Consulta</h2>
+        <p style="text-align: center; color: #b3b3b3; margin-bottom: 20px;">Preencha abaixo para iniciar seu atendimento via WhatsApp.</p>
+
+        <form id="bookingForm">
+            <label>Seu Nome:</label>
+            <input type="text" id="nomeCliente" placeholder="Como gosta de ser chamado(a)?" required>
+
+            <label>Qual leitura você deseja?</label>
+            <select id="tipoLeitura" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Leitura Geral">Leitura Geral - R$40</option>
+                <option value="Tarot do Amor">Tarot do Amor - R$35</option>
+                <option value="Leitura Espiritual">Leitura Espiritual - R$50</option>
+            </select>
+
+            <button type="submit">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Mensagem
+            </button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Tarot Luminar – Todos os direitos reservados</p>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gabr.reami7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <a href="https://wa.me/5519982985805" target="_blank" title="Falar no WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Não recarrega a página
+
+            // Seus dados
+            const telefone = "5519982985805"; 
+            
+            // Pega os valores do formulário
+            const nome = document.getElementById('nomeCliente').value;
+            const servico = document.getElementById('tipoLeitura').value;
+
+            // Cria a mensagem
+            const mensagem = `Olá Gabriel! Me chamo *${nome}*. Tenho interesse na *${servico}* e gostaria de agendar um horário.`;
+
+            // Abre o WhatsApp
+            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        });
+    </script>
+
+</body>
+</html>
