@@ -184,23 +184,23 @@
         <div class="cards">
             <div class="card">
                 <i class="fa-solid fa-sun"></i>
-                <h3>Leitura Geral</h3>
+                <h3>1 Pergunta</h3>
                 <p>Uma visão completa das áreas principais da sua vida e conselhos para o momento presente.</p>
-                <span class="preco">R$ 40,00</span>
+                <span class="preco">R$ 3,00</span>
             </div>
 
             <div class="card">
                 <i class="fa-solid fa-heart"></i>
-                <h3>Tarot do Amor</h3>
+                <h3>3 Perguntas</h3>
                 <p>Entenda energias, sentimentos, bloqueios e caminhos afetivos para o casal ou solteiros.</p>
-                <span class="preco">R$ 35,00</span>
+                <span class="preco">R$ 6,00</span>
             </div>
 
             <div class="card">
                 <i class="fa-solid fa-moon"></i>
-                <h3>Leitura Espiritual</h3>
+                <h3>Leitura semanal</h3>
                 <p>Conexão interior, propósito de alma e direcionamentos para sua evolução.</p>
-                <span class="preco">R$ 50,00</span>
+                <span class="preco">R$ 20,00</span>
             </div>
         </div>
     </section>
@@ -253,7 +253,7 @@
             const servico = document.getElementById('tipoLeitura').value;
 
             // Cria a mensagem
-            const mensagem = `Olá Gabriel! Me chamo *${nome}*. Tenho interesse na *${servico}* e gostaria de agendar um horário.`;
+            const mensagem = `Olá Gabriel! Me chamo ${nome}. Tenho interesse na ${servico} e gostaria de agendar um horário.`;
 
             // Abre o WhatsApp
             const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
