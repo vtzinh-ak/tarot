@@ -216,9 +216,9 @@
             <label>Qual leitura você deseja?</label>
             <select id="tipoLeitura" required>
                 <option value="" disabled selected>Selecione...</option>
-                <option value="Leitura Geral">1 Pergunta - R$3</option>
-                <option value="Tarot do Amor">3 Perguntas - R$6</option>
-                <option value="Leitura Espiritual">Semanal - R$20</option>
+                <option value="Em fazer 1 Pergunta">1 Pergunta - R$3</option>
+                <option value="Em fazer 3 Perguntas">3 Perguntas - R$6</option>
+                <option value="Semanal">Semanal - R$20</option>
             </select>
 
             <button type="submit">
@@ -253,7 +253,7 @@
             const servico = document.getElementById('tipoLeitura').value;
 
             // Cria a mensagem
-            const mensagem = `Olá Gabriel! Me chamo ${nome}. Tenho interesse na ${servico} e gostaria de agendar um horário.`;
+            const mensagem = `Olá Gabriel! Me chamo ${nome}. Tenho interesse ${servico} e gostaria de agendar um horário.`;
 
             // Abre o WhatsApp
             const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
